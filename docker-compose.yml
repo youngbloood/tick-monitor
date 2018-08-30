@@ -14,6 +14,8 @@ services:
   telegraf:
     image: docker.io/telegraf
     container_name: tick_telegraf
+    depends_on:
+      - influxdb
     networks:
       - tick_net
     volumes:
@@ -22,18 +24,22 @@ services:
   chronograf:
     image: docker.io/chronograf
     container_name: tick_chronograf
+    depends_on:
+      - influxdb
     networks: 
       - tick_net
     environment:
       - influxdb-url:http://influxdb:8086
     volumes:
       - /var/lib/chronograf:/var/lib/chronograf:z
-    ports:
-      - "8888:8888"
+    # ports:
+    #   - "8888:8888"
 
   kapacitor:
     image: docker.io/kapacitor
     container_name: tick_kapacitor
+    depends_on:
+      - influxdb
     networks:
       - tick_net
     volumes:
@@ -42,6 +48,11 @@ services:
   proxy:
     image: nginx
     container_name: tick_nginx
+    depends_on:
+      - influxdb
+      - telegraf
+      - chronograf
+      - kapacitor
     networks:
       - tick_net
     volumes:
