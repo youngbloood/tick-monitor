@@ -20,6 +20,7 @@ services:
       - tick_net
     volumes:
       - /etc/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:z
+      - /var/run/docker.sock:var/run/docker.sock:z
   
   chronograf:
     image: docker.io/chronograf
@@ -44,6 +45,7 @@ services:
       - tick_net
     volumes:
       - /var/lib/kapacitor:/var/lib/kapacitor:z
+      - /etc/kapacitor/kapacitor.conf:/etc/kapacitor/kapacitor.conf:z
   
   proxy:
     image: nginx
