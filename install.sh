@@ -43,6 +43,8 @@ echo -e "[agent]
 [[inputs.cpu]]
 [[inputs.system]]" > /etc/telegraf/telegraf.conf
 
+
+
 # write kapacitor.conf
 echo -e "# The hostname of this node.
 # Must be resolvable by any configured InfluxDB hosts.
@@ -104,7 +106,7 @@ default-retention-policy = \"\"
   # Where to store the tasks database
   # DEPRECATED: This option is not needed for new installations.
   # It is only used to determine the location of the task.db file
-  # for migrating to the new `storage` service.
+  # for migrating to the new \`storage\` service.
   dir = \"/var/lib/kapacitor/tasks\"
   # How often to snapshot running task state.
   snapshot-interval = \"60s\"
@@ -138,7 +140,7 @@ default-retention-policy = \"\"
   enabled = true
   default = true
   name = \"localhost\"
-  urls = [\"http://influxdb:8086\"]
+  urls = [\"http://localhost:8086\"]
   username = \"\"
   password = \"\"
   timeout = 0
@@ -180,13 +182,13 @@ default-retention-policy = \"\"
   # Override the global http port option for this InfluxDB cluster.
   # Useful if the InfluxDB cluster is in a separate network and
   # needs special config to connect back to this Kapacitor instance.
-  # Defaults to the port from `[http] bind-address` if 0.
+  # Defaults to the port from \`[http] bind-address\` if 0.
   http-port = 0
 
   # Host part of a bind address for UDP listeners.
   # For example if a UDP listener is using port 1234
-  # and `udp-bind = "hostname_or_ip"`,
-  # then the UDP port will be bound to `hostname_or_ip:1234`
+  # and \`udp-bind = \"hostname_or_ip\"\`,
+  # then the UDP port will be bound to \`hostname_or_ip:1234\`
   # The default empty value will bind to all addresses.
   udp-bind = \"\"
   # Subscriptions use the UDP network protocl.
