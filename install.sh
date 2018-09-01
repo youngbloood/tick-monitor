@@ -48,7 +48,7 @@ echo "[agent]
 # write kapacitor.conf
 echo "# The hostname of this node.
 # Must be resolvable by any configured InfluxDB hosts.
-hostname = \"localhost\"
+hostname = \"kapacitor\"
 # Directory for storing a small amount of metadata about the server.
 data_dir = \"/var/lib/kapacitor\"
 
@@ -138,7 +138,7 @@ default-retention-policy = \"\"
   # Using InfluxDB is not required and can be disabled.
   enabled = true
   default = true
-  name = \"localhost\"
+  name = \"influxdb\"
   urls = [\"http://influxdb:8086\"]
   username = \"\"
   password = \"\"
