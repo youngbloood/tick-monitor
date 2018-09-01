@@ -1,8 +1,8 @@
 # mkdir
-mkdir /etc/influxdb /etc/telegraf /etc/chronograf /etc/kapacitor
+mkdir /etc/influxdb /etc/telegraf /etc/kapacitor
 
 # touch
-touch /etc/influxdb/influxdb.conf /etc/telegraf/telegraf.conf /etc/chronograf/chronograf.conf /etc/kapacitor/kapacitor.conf
+touch /etc/influxdb/influxdb.conf /etc/telegraf/telegraf.conf /etc/kapacitor/kapacitor.conf
 
 # write influxdb.conf
 echo "[meta]
@@ -97,7 +97,6 @@ default-retention-policy = \"\"
   # Directory where task/template/handler files are set
   dir = \"/etc/kapacitor/load\"
 
-
 [replay]
   # Where to store replay files, aka recordings.
   dir = \"/var/lib/kapacitor/replay\"
@@ -127,7 +126,7 @@ default-retention-policy = \"\"
   # Id -- the alert Id, NODE_NAME will be replaced with the name of the node being monitored.
   id = \"node 'NODE_NAME' in task '{{ .TaskName }}'\"
   # The message of the alert. INTERVAL will be replaced by the interval.
-  message = \"{{ .ID }} is {{ if eq .Level \\"OK\\" }}alive{{ else }}dead{{ end }}: {{ index .Fields \\"collected\\" | printf \\"%0.3f\\" }} points/INTERVAL.\"
+  message = \"{{ .ID }} is {{ if eq .Level \\\"OK\\\" }}alive{{ else }}dead{{ end }}: {{ index .Fields \\\"collected\\\" | printf \\\"%0.3f\\\" }} points/INTERVAL.\"
 
 # Multiple InfluxDB configurations can be defined.
 # Exactly one must be marked as the default.

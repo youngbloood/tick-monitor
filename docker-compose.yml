@@ -30,6 +30,8 @@ services:
     restart: always
     depends_on:
       - influxdb
+      - telegraf
+      - kapacitor
     networks: 
       - tick_net
     environment:
@@ -45,6 +47,7 @@ services:
     restart: always
     depends_on:
       - influxdb
+      - telegraf
     networks:
       - tick_net
     volumes:
