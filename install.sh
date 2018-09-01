@@ -1,7 +1,7 @@
-# 
+# mkdir
 mkdir /etc/influxdb /etc/telegraf /etc/chronograf /etc/kapacitor
 
-#
+# touch
 touch /etc/influxdb/influxdb.conf /etc/telegraf/telegraf.conf /etc/chronograf/chronograf.conf /etc/kapacitor/kapacitor.conf
 
 # write influxdb.conf
@@ -220,4 +220,8 @@ default-retention-policy = \"\"
     # my_database = [ \"default\", \"longterm\" ]
 " > /etc/kapacitor/kapacitor.conf
 
+# down
+docker-compose down
+
+# up
 docker-compose up -d
