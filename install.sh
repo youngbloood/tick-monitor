@@ -129,7 +129,6 @@ default-retention-policy = \"\"
   # The message of the alert. INTERVAL will be replaced by the interval.
   message = \"{{ .ID }} is {{ if eq .Level \"OK\" }}alive{{ else }}dead{{ end }}: {{ index .Fields \"collected\" | printf \"%0.3f\" }} points/INTERVAL.\"
 
-
 # Multiple InfluxDB configurations can be defined.
 # Exactly one must be marked as the default.
 # Each one will be given a name and can be referenced in batch queries and InfluxDBOut nodes.
