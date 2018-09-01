@@ -5,14 +5,14 @@ mkdir /etc/influxdb /etc/telegraf /etc/chronograf /etc/kapacitor
 touch /etc/influxdb/influxdb.conf /etc/telegraf/telegraf.conf /etc/chronograf/chronograf.conf /etc/kapacitor/kapacitor.conf
 
 # write influxdb.conf
-echo -e "[meta]
+echo "[meta]
   dir = \"/var/lib/influxdb/meta\"
 [data]
   dir = \"/var/lib/influxdb/data\"
   wal-dir = \"/var/lib/influxdb/wal\"" > /etc/influxdb/influxdb.conf
 
 # write telegraf.conf 
-echo -e "[agent]
+echo "[agent]
   interval = \"10s\"
   round_interval = true
   metric_batch_size = 1000
@@ -46,7 +46,7 @@ echo -e "[agent]
 
 
 # write kapacitor.conf
-echo -e "# The hostname of this node.
+echo "# The hostname of this node.
 # Must be resolvable by any configured InfluxDB hosts.
 hostname = \"localhost\"
 # Directory for storing a small amount of metadata about the server.
